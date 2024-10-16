@@ -6,7 +6,7 @@ import com.pengrad.telegrambot.request.SendMessage;
 public class HelpCommand implements Command {
     @Override
     public String command() {
-        return null;
+        return "/help";
     }
 
     @Override

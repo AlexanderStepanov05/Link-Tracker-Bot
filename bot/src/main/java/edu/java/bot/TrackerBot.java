@@ -6,15 +6,18 @@ import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.BaseRequest;
 import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.BaseResponse;
+import edu.java.bot.configuration.ApplicationConfig;
 import edu.java.bot.message.MessageParser;
+import org.springframework.stereotype.Component;
 import java.util.List;
 
+@Component
 public class TrackerBot implements Bot {
     private final TelegramBot bot;
     private final MessageParser messageParser;
 
-    public TrackerBot(String token) {
-        this.bot = new TelegramBot(token);
+    public TrackerBot() {
+        this.bot = new TelegramBot("7717771695:AAHu1jNw11IFbyEtK9qLFZ7WJAWSzCQiUqE");
         this.messageParser = new MessageParser();
     }
 

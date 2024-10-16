@@ -8,9 +8,11 @@ import edu.java.bot.commands.ListCommand;
 import edu.java.bot.commands.StartCommand;
 import edu.java.bot.commands.TrackCommand;
 import edu.java.bot.commands.UntrackCommand;
+import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.List;
 
+@Component
 public class MessageParser implements UserMessageProcessor {
     private final List<Command> commands = Arrays.asList(
         new StartCommand(),
