@@ -11,8 +11,6 @@ import org.springframework.context.annotation.Bean;
 public class BotApplication {
     public static void main(String[] args) {
         SpringApplication.run(BotApplication.class, args);
-        TrackerBot trackerBot = new TrackerBot();
-        trackerBot.start();
     }
 
 }
