@@ -1,2 +1,7 @@
-/home/inkerinmaa/java-course-2023-backend-template/scrapper/src/main/java/edu/java/scrapper/ScrapperApplication.java
-/home/inkerinmaa/java-course-2023-backend-template/scrapper/src/main/java/edu/java/scrapper/configuration/ApplicationConfig.java
+/home/inkerinmaa/Link-Tracker-Bot/scrapper/src/main/java/edu/java/scrapper/ScrapperApplication.java
+/home/inkerinmaa/Link-Tracker-Bot/scrapper/src/main/java/edu/java/scrapper/client/GithubClient.java
+/home/inkerinmaa/Link-Tracker-Bot/scrapper/src/main/java/edu/java/scrapper/client/StackOverflowClient.java
+/home/inkerinmaa/Link-Tracker-Bot/scrapper/src/main/java/edu/java/scrapper/configuration/ClientConfiguration.java
+/home/inkerinmaa/Link-Tracker-Bot/scrapper/src/main/java/edu/java/scrapper/dto/GithubRepoResponse.java
+/home/inkerinmaa/Link-Tracker-Bot/scrapper/src/main/java/edu/java/scrapper/dto/QuestionItem.java
+/home/inkerinmaa/Link-Tracker-Bot/scrapper/src/main/java/edu/java/scrapper/dto/StackOverflowQuestionResponse.java

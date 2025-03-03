@@ -1,3 +1,10 @@
 edu/java/bot/BotApplication.class
 META-INF/spring-configuration-metadata.json
+edu/java/bot/handler/TrackCommandHandler.class
+edu/java/bot/service/TelegramBotService.class
+edu/java/bot/handler/HelpCommandHandler.class
+edu/java/bot/handler/CommandHandler.class
 edu/java/bot/configuration/ApplicationConfig.class
+edu/java/bot/handler/ListCommandHandler.class
+edu/java/bot/handler/StartCommandHandler.class
+edu/java/bot/handler/UntrackCommandHandler.class
