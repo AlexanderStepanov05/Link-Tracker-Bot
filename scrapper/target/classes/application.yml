@@ -40,5 +40,26 @@ bot:
     dlq-name: link-updates_dlq
   use-queue: true
 
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: info, health, prometheus
+      path-mapping:
+        prometheus: metrics
+  endpoint:
+    prometheus:
+      enabled: true
+    health:
+      show-details: always
+    info:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
 
 

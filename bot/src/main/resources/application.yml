@@ -24,3 +24,24 @@ springdoc:
   packages-to-scan: edu.java.bot, edu.java.scrapper
   api-docs:
     path: /v3/api-docs
+
+management:
+  server:
+    port: 8091
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: info, health, prometheus
+      path-mapping:
+        prometheus: metrics
+  endpoint:
+    prometheus:
+      enabled: true
+    health:
+      show-details: always
+    info:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
