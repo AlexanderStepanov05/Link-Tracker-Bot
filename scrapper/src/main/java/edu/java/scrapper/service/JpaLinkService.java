@@ -36,7 +36,11 @@ public class JpaLinkService implements LinkService {
                 newLink.setLastCheckedAt(OffsetDateTime.now());
                 return linkRepository.save(newLink);
             });
-        chatLinkRepository.save(new ChatLinkEntity.ChatLinkId(tgChatId, link.getId()));
+        
+        ChatLinkEntity chatLink = new ChatLinkEntity();
+        chatLink.setId(new ChatLinkEntity.ChatLinkId(tgChatId, link.getId()));
+        chatLinkRepository.save(chatLink);
+        
         return toDto(link);
     }
 

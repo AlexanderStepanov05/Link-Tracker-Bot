@@ -1,11 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.java.bot.TelegramBotServiceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.563 s <<< FAILURE! -- in edu.java.bot.TelegramBotServiceTest
-edu.java.bot.TelegramBotServiceTest.testListCommandHandler -- Time elapsed: 1.515 s <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "com.pengrad.telegrambot.model.Message.text()" because the return value of "com.pengrad.telegrambot.model.Update.message()" is null
-	at edu.java.bot.TelegramBotServiceTest.testListCommandHandler(TelegramBotServiceTest.java:16)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.317 s -- in edu.java.bot.TelegramBotServiceTest

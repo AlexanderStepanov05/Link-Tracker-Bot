@@ -14,5 +14,22 @@ import org.springframework.validation.annotation.Validated;
     @NotEmpty
     @Value(&quot;${app.telegram-token}&quot;)
 <span class="nc" id="L16">    String telegramToken;</span>
+
+    private String kafkaBootstrapServers;
+<span class="nc" id="L19">    private ScrapperTopic scrapperTopic;</span>
+
+<span class="nc" id="L21">    public String getKafkaBootstrapServers() { return kafkaBootstrapServers; }</span>
+<span class="nc" id="L22">    public String getScrapperTopicName() { return scrapperTopic.name; }</span>
+<span class="nc" id="L23">    public String getScrapperDlqTopicName() { return scrapperTopic.dlqName; }</span>
+
+<span class="nc" id="L25">    public static class ScrapperTopic {</span>
+        private String name;
+        private String dlqName;
+
+<span class="nc" id="L29">        public String getName() { return name; }</span>
+<span class="nc" id="L30">        public void setName(String name) { this.name = name; }</span>
+<span class="nc" id="L31">        public String getDlqName() { return dlqName; }</span>
+<span class="nc" id="L32">        public void setDlqName(String dlqName) { this.dlqName = dlqName; }</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
