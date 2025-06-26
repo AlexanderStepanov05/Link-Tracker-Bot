@@ -14,4 +14,21 @@ public class ApplicationConfig {
     @NotEmpty
     @Value("${app.telegram-token}")
     String telegramToken;
+
+    private String kafkaBootstrapServers;
+    private ScrapperTopic scrapperTopic;
+
+    public String getKafkaBootstrapServers() { return kafkaBootstrapServers; }
+    public String getScrapperTopicName() { return scrapperTopic.name; }
+    public String getScrapperDlqTopicName() { return scrapperTopic.dlqName; }
+
+    public static class ScrapperTopic {
+        private String name;
+        private String dlqName;
+
+        public String getName() { return name; }
+        public void setName(String name) { this.name = name; }
+        public String getDlqName() { return dlqName; }
+        public void setDlqName(String dlqName) { this.dlqName = dlqName; }
+    }
 }

@@ -4,8 +4,25 @@
       "name": "app",
       "type": "edu.java.bot.configuration.ApplicationConfig",
       "sourceType": "edu.java.bot.configuration.ApplicationConfig"
+    },
+    {
+      "name": "app.scrapper-topic",
+      "type": "edu.java.bot.configuration.ApplicationConfig$ScrapperTopic",
+      "sourceType": "edu.java.bot.configuration.ApplicationConfig",
+      "sourceMethod": "public edu.java.bot.configuration.ApplicationConfig.ScrapperTopic getScrapperTopic() "
     }
   ],
-  "properties": [],
+  "properties": [
+    {
+      "name": "app.scrapper-topic.dlq-name",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.bot.configuration.ApplicationConfig$ScrapperTopic"
+    },
+    {
+      "name": "app.scrapper-topic.name",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.bot.configuration.ApplicationConfig$ScrapperTopic"
+    }
+  ],
   "hints": []
 }

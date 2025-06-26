@@ -1,5 +1,9 @@
 app:
   telegram-token: 7717771695:AAHu1jNw11IFbyEtK9qLFZ7WJAWSzCQiUqE
+  kafka-bootstrap-servers: localhost:9092
+  scrapper-topic:
+    name: link-updates
+    dlq-name: link-updates_dlq
 
 spring:
   application:

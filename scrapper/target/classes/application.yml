@@ -34,6 +34,11 @@ scrapper:
   base-url: http://localhost:8080
 bot:
   base-url: http://localhost:8090
+  kafka-bootstrap-servers: localhost:9092
+  scrapper-topic:
+    name: link-updates
+    dlq-name: link-updates_dlq
+  use-queue: true
 
 
 
