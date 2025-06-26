@@ -6,6 +6,11 @@
       "sourceType": "edu.java.scrapper.configuration.ApplicationConfig"
     },
     {
+      "name": "app.http-client.retry",
+      "type": "edu.java.scrapper.configuration.HttpClientRetryProperties",
+      "sourceType": "edu.java.scrapper.configuration.HttpClientRetryProperties"
+    },
+    {
       "name": "app.scheduler",
       "type": "edu.java.scrapper.configuration.ApplicationConfig$Scheduler",
       "sourceType": "edu.java.scrapper.configuration.ApplicationConfig",
@@ -13,6 +18,26 @@
     }
   ],
   "properties": [
+    {
+      "name": "app.http-client.retry.backoff-delay",
+      "type": "java.lang.Long",
+      "sourceType": "edu.java.scrapper.configuration.HttpClientRetryProperties"
+    },
+    {
+      "name": "app.http-client.retry.backoff-type",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.scrapper.configuration.HttpClientRetryProperties"
+    },
+    {
+      "name": "app.http-client.retry.max-attempts",
+      "type": "java.lang.Integer",
+      "sourceType": "edu.java.scrapper.configuration.HttpClientRetryProperties"
+    },
+    {
+      "name": "app.http-client.retry.retry-codes",
+      "type": "java.util.List<java.lang.Integer>",
+      "sourceType": "edu.java.scrapper.configuration.HttpClientRetryProperties"
+    },
     {
       "name": "app.scheduler.interval",
       "type": "java.time.Duration",

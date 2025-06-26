@@ -1,6 +1,16 @@
 app:
   scheduler:
     interval: 10s
+  http-client:
+    retry:
+      max-attempts: 3
+      backoff-type: exponential # constant, linear, exponential
+      backoff-delay: 500 # ms
+      retry-codes: [500, 502, 503, 504]
+  rate-limit:
+    capacity: 10
+    refill-tokens: 10
+    refill-duration: 1m
 
 spring:
   application:

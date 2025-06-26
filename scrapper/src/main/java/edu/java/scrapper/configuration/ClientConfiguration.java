@@ -8,11 +8,14 @@ import edu.java.scrapper.client.GitHubClient;
 import edu.java.scrapper.client.StackOverflowClient;
 import edu.java.scrapper.client.impl.GitHubClientImpl;
 import edu.java.scrapper.client.impl.StackOverflowClientImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClient.Builder;
+import org.springframework.web.reactive.function.client.WebClient.Builder;
 
 @Configuration
 @EnableScheduling
@@ -30,6 +33,13 @@ public class ClientConfiguration {
     @Value("${bot.base-url:http://localhost:8090}")
     private String botBaseUrl;
 
+    private final RetryExchangeFilterFunction retryFilter;
+
+    @Autowired
+    public ClientConfiguration(RetryExchangeFilterFunction retryFilter) {
+        this.retryFilter = retryFilter;
+    }
+
     @Bean
     public ScrapperClient scrapperClient() {
         return new ScrapperWebClient(scrapperBaseUrl);
@@ -42,13 +52,13 @@ public class ClientConfiguration {
 
     @Bean
     public GitHubClient gitHubClient(WebClient.Builder webClientBuilder) {
-        return new GitHubClientImpl(webClientBuilder.baseUrl(githubBaseUrl).build());
+        return new GitHubClientImpl(webClientBuilder.baseUrl(githubBaseUrl).filter(retryFilter).build());
     }
 
     @Bean
     public StackOverflowClient stackOverflowClient(WebClient.Builder webClientBuilder) {
         return new StackOverflowClientImpl(
-            webClientBuilder.baseUrl(stackoverflowBaseUrl).build()
+            webClientBuilder.baseUrl(stackoverflowBaseUrl).filter(retryFilter).build()
         );
     }
 }
