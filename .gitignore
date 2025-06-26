@@ -1,0 +1,51 @@
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# VS Code
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Liquibase
+liquibase.log
+
+# Docker
+*.pid
+
+# Test output
+/test-output/
+
+# Node/npm (если вдруг есть фронт)
+node_modules/
+
+# Misc
+*.swp
+*.swo
+
+# Database
+*.h2.db
+*.mv.db
+*.sqlite
+
+# Ignore migration artifacts
+migrations/*.lock 

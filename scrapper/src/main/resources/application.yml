@@ -20,3 +20,10 @@ springdoc:
   api-docs:
     path: /v3/api-docs
 
+scrapper:
+  base-url: http://localhost:8080
+bot:
+  base-url: http://localhost:8090
+
+
+

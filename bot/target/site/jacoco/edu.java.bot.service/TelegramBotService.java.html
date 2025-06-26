@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TelegramBotService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bot</a> &gt; <a href="index.source.html" class="el_package">edu.java.bot.service</a> &gt; <span class="el_source">TelegramBotService.java</span></div><h1>TelegramBotService.java</h1><pre class="source lang-java linenums">package edu.java.bot.service;
+
+import com.pengrad.telegrambot.TelegramBot;
+import com.pengrad.telegrambot.UpdatesListener;
+import com.pengrad.telegrambot.model.BotCommand;
+import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.request.SendMessage;
+import com.pengrad.telegrambot.request.SetMyCommands;
+import edu.java.bot.configuration.ApplicationConfig;
+import edu.java.bot.exception.DuplicateLinkException;
+import edu.java.bot.exception.LinkNotFoundException;
+import edu.java.bot.handler.CommandHandler;
+import jakarta.annotation.PostConstruct;
+import java.util.List;
+import org.springframework.stereotype.Service;
+
+@Service
+public class TelegramBotService {
+    private final TelegramBot bot;
+    private final List&lt;CommandHandler&gt; handlers;
+
+<span class="nc" id="L22">    public TelegramBotService(ApplicationConfig config, List&lt;CommandHandler&gt; handlers) {</span>
+<span class="nc" id="L23">        this.bot = new TelegramBot(config.getTelegramToken());</span>
+<span class="nc" id="L24">        this.handlers = handlers;</span>
+<span class="nc" id="L25">        bot.setUpdatesListener(this::processUpdates);</span>
+<span class="nc" id="L26">    }</span>
+
+    @PostConstruct
+    private void init() {
+<span class="nc" id="L30">        setupBotCommands();</span>
+<span class="nc" id="L31">    }</span>
+
+    private int processUpdates(List&lt;Update&gt; updates) {
+<span class="nc" id="L34">        updates.forEach(update -&gt; {</span>
+            try {
+<span class="nc" id="L36">                boolean handled = false;</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">                for (CommandHandler handler : handlers) {</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">                    if (handler.canHandle(update)) {</span>
+<span class="nc" id="L39">                        handler.handle(update, bot);</span>
+<span class="nc" id="L40">                        handled = true;</span>
+<span class="nc" id="L41">                        break;</span>
+                    }
+<span class="nc" id="L43">                }</span>
+<span class="nc bnc" id="L44" title="All 4 branches missed.">                if (!handled &amp;&amp; update.message() != null) {</span>
+<span class="nc" id="L45">                    bot.execute(new SendMessage(update.message().chat().id(), &quot;Неизвестная команда.&quot;));</span>
+                }
+<span class="nc" id="L47">            } catch (DuplicateLinkException | LinkNotFoundException e) {</span>
+<span class="nc" id="L48">                bot.execute(new SendMessage(update.message().chat().id(), e.getMessage()));</span>
+<span class="nc" id="L49">            } catch (Exception e) {</span>
+<span class="nc" id="L50">                bot.execute(new SendMessage(update.message().chat().id(), &quot;Произошла ошибка.&quot;));</span>
+<span class="nc" id="L51">            }</span>
+<span class="nc" id="L52">        });</span>
+<span class="nc" id="L53">        return UpdatesListener.CONFIRMED_UPDATES_ALL;</span>
+    }
+
+    private void setupBotCommands() {
+<span class="nc" id="L57">        bot.execute(new SetMyCommands(</span>
+            new BotCommand(&quot;/start&quot;, &quot;Начать работу с ботом&quot;),
+            new BotCommand(&quot;/help&quot;, &quot;Справка по боту&quot;),
+            new BotCommand(&quot;/track&quot;, &quot;Отслеживать ресурс&quot;),
+            new BotCommand(&quot;/untrack&quot;, &quot;Прекратить отслеживать ресурс&quot;),
+            new BotCommand(&quot;/list&quot;, &quot;Список отслеживаемых ресурсов&quot;)
+        ));
+<span class="nc" id="L64">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

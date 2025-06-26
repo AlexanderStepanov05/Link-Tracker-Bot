@@ -1,5 +1,9 @@
 package edu.java.scrapper.configuration;
 
+import edu.java.scrapper.appclients.BotClient;
+import edu.java.scrapper.appclients.BotWebClient;
+import edu.java.scrapper.appclients.ScrapperClient;
+import edu.java.scrapper.appclients.ScrapperWebClient;
 import edu.java.scrapper.client.GitHubClient;
 import edu.java.scrapper.client.StackOverflowClient;
 import edu.java.scrapper.client.impl.GitHubClientImpl;
@@ -19,6 +23,22 @@ public class ClientConfiguration {
 
     @Value("${stackoverflow.base-url:https://api.stackexchange.com/2.3}")
     private String stackoverflowBaseUrl;
+
+    @Value("${scrapper.base-url:http://localhost:8080}")
+    private String scrapperBaseUrl;
+
+    @Value("${bot.base-url:http://localhost:8090}")
+    private String botBaseUrl;
+
+    @Bean
+    public ScrapperClient scrapperClient() {
+        return new ScrapperWebClient(scrapperBaseUrl);
+    }
+
+    @Bean
+    public BotClient botClient() {
+        return new BotWebClient(botBaseUrl);
+    }
 
     @Bean
     public GitHubClient gitHubClient(WebClient.Builder webClientBuilder) {

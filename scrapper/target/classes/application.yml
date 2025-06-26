@@ -1,8 +1,6 @@
 app:
   scheduler:
-    enable: true
     interval: 10s
-    force-check-delay: 10s
 
 spring:
   application:
@@ -13,3 +11,19 @@ server:
 
 logging:
   config: classpath:log4j2-plain.xml
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui
+  packages-to-scan: edu.java.bot, edu.java.scrapper
+  api-docs:
+    path: /v3/api-docs
+
+scrapper:
+  base-url: http://localhost:8080
+bot:
+  base-url: http://localhost:8090
+
+
+
