@@ -23,6 +23,11 @@ public class TelegramBotServiceTest {
         when(chat.id()).thenReturn(123L);
 
         ListCommandHandler listCommandHandler = new ListCommandHandler();
+        
+        // Test canHandle method first
+        assert listCommandHandler.canHandle(update);
+        
+        // Then test handle method
         listCommandHandler.handle(update, bot);
 
         verify(bot).execute(any());

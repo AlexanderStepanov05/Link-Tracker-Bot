@@ -1,8 +1,8 @@
 package edu.java.scrapper.configuration;
 
-import io.github.bucket4j.Bandwidth;
-import io.github.bucket4j.Bucket;
-import io.github.bucket4j.Refill;
+import com.github.vladimir_bukhtoyarov.bucket4j.Bandwidth;
+import com.github.vladimir_bukhtoyarov.bucket4j.Bucket;
+import com.github.vladimir_bukhtoyarov.bucket4j.Refill;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

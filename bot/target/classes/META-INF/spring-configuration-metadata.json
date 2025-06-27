@@ -8,7 +8,8 @@
     {
       "name": "app.scrapper-topic",
       "type": "edu.java.bot.configuration.ApplicationConfig$ScrapperTopic",
-      "sourceType": "edu.java.bot.configuration.ApplicationConfig"
+      "sourceType": "edu.java.bot.configuration.ApplicationConfig",
+      "sourceMethod": "public edu.java.bot.configuration.ApplicationConfig.ScrapperTopic getScrapperTopic() "
     }
   ],
   "properties": [
