@@ -36,14 +36,14 @@ jobs:
     
     - name: Tag and push bot image
       run: |
-        docker tag bot ghcr.io/${{ github.repository_owner }}/bot:${{ github.sha }}
-        docker tag bot ghcr.io/${{ github.repository_owner }}/bot:latest
-        docker push ghcr.io/${{ github.repository_owner }}/bot:${{ github.sha }}
-        docker push ghcr.io/${{ github.repository_owner }}/bot:latest
+        docker tag bot ghcr.io/alexanderstepanov05/link-tracker-bot:${{ github.sha }}
+        docker tag bot ghcr.io/alexanderstepanov05/link-tracker-bot:latest
+        docker push ghcr.io/alexanderstepanov05/link-tracker-bot:${{ github.sha }}
+        docker push ghcr.io/alexanderstepanov05/link-tracker-bot:latest
     
     - name: Tag and push scrapper image
       run: |
-        docker tag scrapper ghcr.io/${{ github.repository_owner }}/scrapper:${{ github.sha }}
-        docker tag scrapper ghcr.io/${{ github.repository_owner }}/scrapper:latest
-        docker push ghcr.io/${{ github.repository_owner }}/scrapper:${{ github.sha }}
-        docker push ghcr.io/${{ github.repository_owner }}/scrapper:latest 
+        docker tag scrapper ghcr.io/alexanderstepanov05/link-tracker-bot-scrapper:${{ github.sha }}
+        docker tag scrapper ghcr.io/alexanderstepanov05/link-tracker-bot-scrapper:latest
+        docker push ghcr.io/alexanderstepanov05/link-tracker-bot-scrapper:${{ github.sha }}
+        docker push ghcr.io/alexanderstepanov05/link-tracker-bot-scrapper:latest 
